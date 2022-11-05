@@ -5,7 +5,7 @@ const pool = require('../modules/pool')
 router.get('/', (req, res) => {
     const movieId = req.query.query;
     console.log('movieID', movieId);
-    // want to query for title, description, poster, and all genres for the movie
+    // want to query for title, description, poster, and all genres for the movieId
     const sqlText = `
                     SELECT 
                         movies.*, 
