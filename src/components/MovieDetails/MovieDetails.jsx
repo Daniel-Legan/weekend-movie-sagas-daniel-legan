@@ -18,6 +18,10 @@ function MovieDetails() {
         })
     }, [params.id]);
 
+    const genresArray = movieDetails.genres;
+    console.log('genresArray', genresArray);
+
+
     return (
         <main>
             <nav className='navigation'>
@@ -28,9 +32,15 @@ function MovieDetails() {
             </nav>
             <section>
                 <h3>{movieDetails.title}</h3>
-                <img src={movieDetails.poster} />
-                <p><b>Movie Description: </b>{movieDetails.description}</p>
+                <div className='detailsImageAndDescription'>
+                    <img className='detailsImage' src={movieDetails.poster} />
+                    <div><b>Movie Description: </b>{movieDetails.description}</div>
+                    <div className='TEST'>TEST: Adventure, Biographical, Comedy</div>
+                </div>
+
                 <p><b>Movie Genres: </b></p>
+                {movieDetails.genres &&
+                    <p>Genre: {movieDetails.genres.join(', ')}</p>}
                 {/* 
 
                 IMPORTANT! 
@@ -43,7 +53,6 @@ function MovieDetails() {
                         <p key={item.id}>{item.name}</p>
                     ))}
             </section>
-
         </main>
     );
 }

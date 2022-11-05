@@ -21,12 +21,12 @@ function* fetchDetails(action) {
     console.log(`fetchDetails' action.payload is:`, action.payload); // "2"
 
     try {
-        const response = yield axios.get(`/api/details/`, {
+        const response = yield axios.get(`/api/genre/`, {
             params: {
                 query: action.payload
             }
         });
-        console.log('movie details response', response.data);
+        console.log('movie genre response', response.data);
 
         // aka "dispatch"
         yield put({
@@ -81,7 +81,7 @@ const movieDetails = (state = {}, action) => {
             return action.payload
         default:
             return state;
-    };
+    }
 }
 
 // Create one store that all components can use

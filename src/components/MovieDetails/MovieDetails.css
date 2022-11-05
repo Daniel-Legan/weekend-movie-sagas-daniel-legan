@@ -2,3 +2,20 @@ nav {
     background: grey;
     height: 50px;
 }
+
+img.detailsImage {
+    width: 100%;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.detailsImageAndDescription {
+    display: grid;
+    grid-template-columns: 40% auto;
+    width: 70%;
+    margin: 0px auto;
+}
+
+* {
+    border: black solid;
+}
