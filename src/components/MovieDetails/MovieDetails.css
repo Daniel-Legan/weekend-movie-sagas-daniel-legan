@@ -9,29 +9,33 @@ img.detailsImage {
     grid-row: 1 / span 2;
 }
 
-.detailsImageAndDescription {
+.details {
     display: grid;
     grid-template-columns: 40% auto;
     width: 70%;
     margin: 0px auto;
 }
 
-* {
+/* * {
     border: black solid;
-}
+} */
 
-.detailsDescription, .detailsGenres {
+.detailsDescription, .genresContainer {
     text-align: left;
     margin: 0px 10px;
 }
 
-.detailsGenres {
+.genresContainer {
     align-items: flex-end;
     position: relative;
 }
 
-.test {
+.detailsGenres {
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.backButton {
+    margin-left: 5px;
 }

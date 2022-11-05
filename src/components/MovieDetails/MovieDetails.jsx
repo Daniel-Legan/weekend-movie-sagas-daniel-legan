@@ -1,7 +1,7 @@
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 function MovieDetails() {
     const params = useParams();
@@ -9,29 +9,29 @@ function MovieDetails() {
     const movieDetails = useSelector(store => store.movieDetails);
     const dispatch = useDispatch();
 
-    console.log('params', params); // { id: '17' } as an example
-
     useEffect(() => {
         dispatch({
             type: 'FETCH_DETAILS',
             payload: params.id
         })
-    }, [params.id]);
+    }, [params.id]); 
 
     return (
         <main>
             <nav className='navigation'>
-                <button onClick={() => history.push('/')}>Back</button>
+                <div className='backButton'>
+                    <Button variant="contained" onClick={() => history.push('/')}>Back</Button>
+                </div>
             </nav>
             <section>
                 <h3>{movieDetails.title}</h3>
-                <div className='detailsImageAndDescription'>
+                <div className='details'>
                     <img className='detailsImage' src={movieDetails.poster} />
                     <div className='detailsDescription'><b>Description:</b>
                         <div>{movieDetails.description}</div>
                     </div>
-                    <div className='detailsGenres'>
-                        <div className='test'>
+                    <div className='genresContainer'>
+                        <div className='detailsGenres'>
                             <b>Genre(s):</b>
                             {/* 
 
