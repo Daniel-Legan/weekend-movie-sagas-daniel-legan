@@ -47,7 +47,6 @@ function MovieDetails() {
                                     movieDetails.genres.map(item => (item.name)).join(', ')}
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
