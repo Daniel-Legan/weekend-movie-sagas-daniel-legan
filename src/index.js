@@ -15,12 +15,10 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_DETAILS', fetchDetails);
-
 }
 
 function* fetchDetails(action) {
-    console.log('in fetchDetails');
-    console.log('action.payload is:', action.payload); // "2"
+    console.log(`fetchDetails' action.payload is:`, action.payload); // "2"
 
     try {
         const response = yield axios.get(`/api/details/`, {
@@ -51,7 +49,6 @@ function* fetchAllMovies() {
     } catch {
         console.log('get all error');
     }
-
 }
 
 // Create sagaMiddleware
@@ -77,11 +74,22 @@ const genres = (state = [], action) => {
     }
 }
 
+const movieDetails = (state = {}, action) => {
+    switch (action.type) {
+        case 'SET_MOVIE_DETAILS':
+            console.log(`movieDetails' action.payload`, action.payload);
+            return action.payload
+        default:
+            return state;
+    };
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        movieDetails
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
