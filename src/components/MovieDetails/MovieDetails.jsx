@@ -18,40 +18,38 @@ function MovieDetails() {
         })
     }, [params.id]);
 
-    const genresArray = movieDetails.genres;
-    console.log('genresArray', genresArray);
-
-
     return (
         <main>
             <nav className='navigation'>
-                {/* <button>
-                    <Link to="/">Back</Link>
-                </button> */}
                 <button onClick={() => history.push('/')}>Back</button>
             </nav>
             <section>
                 <h3>{movieDetails.title}</h3>
                 <div className='detailsImageAndDescription'>
                     <img className='detailsImage' src={movieDetails.poster} />
-                    <div><b>Movie Description: </b>{movieDetails.description}</div>
-                    <div className='TEST'>TEST: Adventure, Biographical, Comedy</div>
+                    <div className='detailsDescription'><b>Description:</b>
+                        <div>{movieDetails.description}</div>
+                    </div>
+                    <div className='detailsGenres'>
+                        <div className='test'>
+                            <b>Genre(s):</b>
+                            {/* 
+
+                            IMPORTANT! 
+                            without conditional, .map() has undefined initially
+                            takes a bit to retrieve array with useSelector
+
+                            from ramirez-react-route-params example
+
+                            */}
+                            <div>
+                                {movieDetails.genres &&
+                                    movieDetails.genres.map(item => (item.name)).join(', ')}
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
-                <p><b>Movie Genres: </b></p>
-                {movieDetails.genres &&
-                    <p>Genre: {movieDetails.genres.join(', ')}</p>}
-                {/* 
-
-                IMPORTANT! 
-                without conditional, .map() has undefined initially
-                takes a bit to retrieve array with useSelector 
-
-                */}
-                {movieDetails.genres &&
-                    movieDetails.genres.map(item => (
-                        <p key={item.id}>{item.name}</p>
-                    ))}
             </section>
         </main>
     );
