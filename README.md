@@ -1,6 +1,4 @@
-# PROJECT NAME
-
-Weekend Movie Sagas
+# Weekend Movie Sagas
 
 ## Description
 
