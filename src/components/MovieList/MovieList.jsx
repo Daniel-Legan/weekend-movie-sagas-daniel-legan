@@ -15,7 +15,8 @@ function MovieList() {
 
     return (
         <main>
-            <nav></nav>
+            <nav className='navbar'>
+            </nav>
             <section className="movies">
                 {movies.map(movie => {
                     return (
@@ -25,6 +26,7 @@ function MovieList() {
                             onClick={() => history.push(`/details/${movie.id}`)}
                         >
                             <img
+                                className='moveListImage'
                                 src={movie.poster}
                                 alt={movie.title} />
                             <div className='container'>

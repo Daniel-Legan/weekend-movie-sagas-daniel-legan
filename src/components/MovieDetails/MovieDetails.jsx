@@ -1,7 +1,7 @@
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 
 function MovieDetails() {
     const params = useParams();
@@ -18,13 +18,14 @@ function MovieDetails() {
 
     return (
         <main>
-            <nav className='navigation'>
-                <div className='backButton'>
+            <nav className='navbar'>
+                {/* <div className='backButton'>
                     <Button variant="contained" onClick={() => history.push('/')}>Back</Button>
-                </div>
+                </div> */}
+                <a href="#"><i className="fa fa-fw fa-arrow-left" onClick={() => history.push('/')}></i> Back</a>
             </nav>
             <section>
-                <h3>{movieDetails.title}</h3>
+                <h1>{movieDetails.title}</h1>
                 <div className='details'>
                     <img className='detailsImage' src={movieDetails.poster} />
                     <div className='detailsDescription'><b>Description:</b>

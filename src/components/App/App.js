@@ -7,7 +7,6 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 function App() {
   return (
     <div className="App">
-      
       <Router>        
         <Route path="/" exact>
           <MovieList />
